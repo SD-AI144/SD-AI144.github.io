@@ -3,48 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soubhagyashree Das | Legal Tech & Compliance</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 2rem; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #34495e; margin-top: 2rem; }
-        .project { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; }
-        .tech-tags { color: #666; font-size: 0.9em; font-weight: bold; }
-        a { color: #0366d6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+    <title>Soubhagyashree Das | Legal Tech Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1>Soubhagyashree Das</h1>
-    <p><strong>Legal Tech & Compliance | DPDP Act | BA.LLB (Hons.)</strong></p>
-    <p>
-        <a href="mailto:soubhagyashree0@gmail.com">Email</a> | 
-        <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a> | 
-        <a href="https://github.com/SD-AI144" target="_blank">GitHub</a>
-    </p>
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="logo">SD<span>.</span></div>
+                <h1>Soubhagyashree Das</h1>
+                <p class="title">Legal Tech & Compliance</p>
+                <div class="contact-pills">
+                    <button onclick="copyEmail()" class="pill">Email</button>
+                    <a href="https://linkedin.com/in/soubhagyashree" target="_blank" class="pill">LinkedIn</a>
+                    <a href="https://github.com/SD-AI144" target="_blank" class="pill">GitHub</a>
+                </div>
+            </div>
 
-    <h2>Featured Projects</h2>
-    
-    <div class="project">
-        <h3>ArgLex — Argument-Level Legal Retrieval System</h3>
-        <p class="tech-tags">Python | Semantic Search | Domain Model Training</p>
-        <p>Built and publicly deployed a retrieval tool that surfaces specific arguments from Indian court decisions. Manually curated 99 arguments across 16 Supreme Court decisions using a multi-layer pipeline combining semantic search with a legal-domain model trained on 5.4M Indian legal documents.</p>
-        <p><em>Publication: "Beyond the Hallucination: Building a ‘Retrieval-Only’ Future for Indian Legal Tech" (Apr 2026), SSRN.</em></p>
+            <nav class="nav-menu">
+                <button class="nav-btn active" data-target="dashboard">
+                    <span class="icon">⊞</span> Dashboard
+                </button>
+                <button class="nav-btn" data-target="projects">
+                    <span class="icon">⚙</span> Tech Projects
+                </button>
+                <button class="nav-btn" data-target="drafting">
+                    <span class="icon">✍</span> Drafting & Experience
+                </button>
+                <button class="nav-btn" data-target="research">
+                    <span class="icon">📚</span> Research & Articles
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>BA.LLB (Hons.) • 2026</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            
+            <!-- PANEL: DASHBOARD -->
+            <section id="dashboard" class="panel active">
+                <header class="panel-header">
+                    <h2>System Overview</h2>
+                    <p>Bridging the gap between courtroom litigation and zero-hallucination automation.</p>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">ArgLex</div>
+                        <div class="stat-label">Flagship Retrieval System</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">5.4M</div>
+                        <div class="stat-label">Legal Docs Modeled</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">DPDP</div>
+                        <div class="stat-label">Compliance Simulator</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Retrieval-Only Architecture</div>
+                    </div>
+                </div>
+
+                <div class="widget demo-widget">
+                    <div class="widget-header">
+                        <h3>Interactive Demo: ArgLex Retrieval vs. Generative AI</h3>
+                        <p>Experience why retrieval-only architecture removes courtroom hallucination risk.</p>
+                    </div>
+                    
+                    <div class="demo-controls">
+                        <button class="query-btn active" onclick="loadDemoQuery(1)">Query: CPC Sec 115 Scope</button>
+                        <button class="query-btn" onclick="loadDemoQuery(2)">Query: DPDP Erasure Conflict</button>
+                    </div>
+
+                    <div class="demo-comparison">
+                        <div class="demo-box gen-ai">
+                            <span class="box-label warning">Generative AI (High Risk)</span>
+                            <p id="genai-text">"Under Section 115 CPC, High Courts can revise orders if lower courts failed to exercise jurisdiction. The court generally held that revision is acceptable..."</p>
+                        </div>
+                        <div class="demo-box arglex">
+                            <span class="box-label success">ArgLex Verbatim Anchor (Zero Risk)</span>
+                            <p id="retrieval-text"><strong>[Para 14 | SC 2025]:</strong> "The revisionary power under Section 115 CPC is strictly confined to jurisdictional error and cannot be exercised to re-appreciate evidence on merits..."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL: TECH PROJECTS -->
+            <section id="projects" class="panel">
+                <header class="panel-header">
+                    <h2>Independent Tech Builds</h2>
+                    <p>Proof-of-concepts, automation pipelines, and deployed retrieval engines.</p>
+                </header>
+
+                <div class="card-grid">
+                    <div class="item-card premium-card">
+                        <div class="card-top">
+                            <span class="tag gold-tag">Live Deployed</span>
+                            <h3>ArgLex — Argument-Level Retrieval</h3>
+                        </div>
+                        <p>A multi-layer pipeline combining semantic search with an InLegalBERT domain model to surface specific arguments from Indian court decisions (CPC 115) rather than full-case dumps.</p>
+                        <div class="tech-stack">
+                            <span>Python</span><span>InLegalBERT</span><span>Semantic Search</span>
+                        </div>
+                        <a href="https://legal-argument-retriever-9r98krof2zjwb2jnvzbw9a.streamlit.app/" target="_blank" class="action-link">Launch ArgLex Engine ↗</a>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="card-top">
+                            <span class="tag">Proof of Concept</span>
+                            <h3>DPDP Compliance Engine Simulator</h3>
+                        </div>
+                        <p>A FastAPI service modeling data-erasure requests under Section 6(4) of the DPDP Act against statutory retention mandates under PMLA, CGST, and Companies Act via explicit decision trees.</p>
+                        <div class="tech-stack">
+                            <span>FastAPI</span><span>Python</span><span>Decision Trees</span>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="card-top">
+                            <span class="tag">Internal Tool</span>
+                            <h3>Document Triage Automation</h3>
+                        </div>
+                        <p>Rule-based document triage script built during VIDUR internship. Scans judgments across 5 regulatory bodies, flags image-only files for OCR, and maps keyword metadata to Excel.</p>
+                        <div class="tech-stack">
+                            <span>Python</span><span>OCR Pipeline</span><span>Excel API</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL: DRAFTING & EXPERIENCE -->
+            <section id="drafting" class="panel">
+                <header class="panel-header">
+                    <h2>Drafting Portfolio & Experience</h2>
+                    <p>Bridging traditional litigation experience with modern compliance drafting.</p>
+                </header>
+
+                <div class="split-layout">
+                    <!-- Experience -->
+                    <div class="timeline-column">
+                        <h3 class="section-subtitle">Legal & Product Experience</h3>
+                        
+                        <div class="timeline-item">
+                            <h4>Legal & Product Intern</h4>
+                            <span class="org">VIDUR – KonProz Tech | Jun–Jul 2025</span>
+                            <p>Built automated Python triage tools for incoming regulatory judgments. Monitored 10+ weekly regulatory updates and participated in product QA cycles for AI legal research tools.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4>Legal Intern</h4>
+                            <span class="org">Supreme Court of India (Adv. R.M. Patnaik) | Dec 2025–Feb 2026</span>
+                            <p>Drafted writ petitions, legal notices, and written submissions across concurrent civil matters.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h4>Legal Intern</h4>
+                            <span class="org">High Court of Odisha (Adv. S.K. Patnaik) | Jan 2023–2026</span>
+                            <p>Drafted pleadings, applications, and affidavits; attended ~50 hearings over 3 years.</p>
+                        </div>
+                    </div>
+
+                    <!-- Drafting Portfolio -->
+                    <div class="drafting-column">
+                        <h3 class="section-subtitle">Drafting & Compliance Portfolio</h3>
+                        
+                        <div class="draft-card">
+                            <span class="draft-type">Corporate Compliance</span>
+                            <h4>Data & Technology Transactions (Latham & Watkins Simulation)</h4>
+                            <p>Redlined Terms of Service and drafted memorandums flagging critical data and liability risks for technology vendors.</p>
+                        </div>
+
+                        <div class="draft-card">
+                            <span class="draft-type">Data Privacy</span>
+                            <h4>Global Cyber & Data Privacy (DLA Piper Simulation)</h4>
+                            <p>Drafted advisory notes on GDPR obligations, breach notification timelines, and ransomware payment risks.</p>
+                        </div>
+
+                        <div class="draft-card">
+                            <span class="draft-type">In-House Commercial</span>
+                            <h4>Arbitration & CSR Summaries (NALCO)</h4>
+                            <p>Reviewed 10+ commercial contracts and drafted case summaries regarding arbitration disputes and Schedule VII CSR obligations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL: RESEARCH & ARTICLES -->
+            <section id="research" class="panel">
+                <header class="panel-header">
+                    <h2>Publications & Insights</h2>
+                    <p>Independent research at the intersection of AI governance and Indian Law.</p>
+                </header>
+
+                <div class="card-grid">
+                    <div class="item-card premium-card">
+                        <div class="card-top">
+                            <span class="tag gold-tag">SSRN Publication</span>
+                            <h3>Beyond the Hallucination: Building a 'Retrieval-Only' Future for Indian Legal Tech</h3>
+                        </div>
+                        <p>Published paper detailing the architectural necessity of retrieval-only AI systems in Indian courts to prevent judicial misconduct and preserve the nuance of verbatim precedents.</p>
+                        <a href="https://ssrn.com/abstract=6530680" target="_blank" class="action-link">Read on SSRN ↗</a>
+                    </div>
+
+                    <!-- Placeholder for future articles -->
+                    <div class="item-card article-placeholder">
+                        <div class="card-top">
+                            <span class="tag">Coming Soon</span>
+                            <h3>Data Erasure vs. Statutory Retention</h3>
+                        </div>
+                        <p>An upcoming deep-dive article breaking down the technical and legal conflicts between DPDP Act Section 6(4) and the PMLA.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
     </div>
 
-    <div class="project">
-        <h3>DPDP Compliance Engine Simulator</h3>
-        <p class="tech-tags">FastAPI | Proof of Concept | Decision Trees</p>
-        <p>A FastAPI service that models how a data-erasure request under Section 6(4) of the DPDP Act, 2023 interacts with statutory retention mandates under the PMLA, CGST Act, and Companies Act.</p>
-    </div>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Email copied to clipboard! 📋</div>
 
-    <h2>Experience</h2>
-    <ul>
-        <li><strong>Legal & Product Intern | VIDUR</strong> – Built a Python document triage script scanning IBC, MCA, and RBI matters.</li>
-        <li><strong>Legal Intern | Supreme Court of India</strong> – Drafted writ petitions and written submissions.</li>
-        <li><strong>Legal Intern | High Court of Odisha</strong> – Drafted pleadings and attended 50+ hearings.</li>
-    </ul>
-
+    <script src="script.js"></script>
 </body>
 </html>
