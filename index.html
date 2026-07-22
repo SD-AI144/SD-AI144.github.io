@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soubhagyashree Das | Legal Tech Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome for the Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar">
-        <a href="#" class="logo">Soubhagyashree Das</a>
+        <a href="#" class="logo">SD.</a>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#projects">Projects & Tech</a>
+            <a href="#projects">Tech Builds</a>
             <a href="#drafting">Drafting</a>
             <a href="#research">Research</a>
         </div>
@@ -25,9 +23,9 @@
     <div class="container">
         
         <!-- Hero Section -->
-        <header class="hero">
+        <header class="hero" id="about">
             <h1>A Legal Professional Built for Zero-Hallucination Tech</h1>
-            <p class="subtitle"><strong>Legal Tech Engineering • Compliance Automation • DPDP Act</strong></p>
+            <p class="subtitle">Legal Tech Engineering • Compliance Automation • DPDP Act</p>
             <p class="summary">Recent law graduate bridging the gap between courtroom litigation and AI-driven automation. I build retrieval-only systems and statutory compliance engines.</p>
             
             <div class="hero-tags">
@@ -46,13 +44,13 @@
         <!-- What I Bring Section -->
         <section class="value-prop">
             <h2>What I Bring to Your Legal Team</h2>
-            <p class="section-desc">Bridging the gap between foundational legal skills and modern technology</p>
+            <p class="section-desc">Bridging foundational legal skills with modern technology workflows.</p>
 
             <div class="value-item">
                 <div class="value-icon"><i class="fa-solid fa-microchip"></i></div>
                 <div class="value-content">
                     <h3>Legal Tech & Retrieval Engineering</h3>
-                    <p>I don't just use tools; I build them. I engineered ArgLex, a semantic search tool using an InLegalBERT model trained on 5.4M documents. I deliberately designed it as "retrieval-only" to eliminate the hallucination risks that plague generative AI in courtrooms.</p>
+                    <p>I don't just use tools; I build them. I engineered ArgLex, a semantic search tool using an InLegalBERT model trained on 5.4M documents. Designed explicitly as "retrieval-only" to eliminate hallucination risks in court.</p>
                     <p class="translation"><em>*Translation: I build systems that legal teams can actually trust in court.*</em></p>
                 </div>
             </div>
@@ -61,7 +59,7 @@
                 <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
                 <div class="value-content">
                     <h3>Compliance Simulation & DPDP Act</h3>
-                    <p>Built a FastAPI proof-of-concept simulator that maps data-erasure requests under Section 6(4) of the DPDP Act against statutory retention mandates (PMLA, CGST, Companies Act) using explicit decision trees.</p>
+                    <p>Built a FastAPI proof-of-concept simulator mapping data-erasure requests under Section 6(4) of the DPDP Act against statutory retention mandates (PMLA, CGST) using explicit decision trees.</p>
                     <p class="translation"><em>*Translation: I understand how regulations interact under the hood.*</em></p>
                 </div>
             </div>
@@ -70,7 +68,7 @@
                 <div class="value-icon"><i class="fa-solid fa-pen-nib"></i></div>
                 <div class="value-content">
                     <h3>Traditional Legal Drafting</h3>
-                    <p>Solid foundation in core litigation. Drafted writ petitions, legal notices, and applications at the Supreme Court of India and High Court of Odisha, while attending over 50 hearings across 3 years.</p>
+                    <p>Solid foundation in core litigation. Drafted writ petitions, legal notices, and applications at the Supreme Court of India and High Court of Odisha, attending over 50 hearings across 3 years.</p>
                     <p class="translation"><em>*Translation: I understand the foundational law behind the technology.*</em></p>
                 </div>
             </div>
@@ -79,7 +77,7 @@
         <!-- Interactive Demo Section -->
         <section class="demo-section">
             <h2><i class="fa-solid fa-desktop"></i> Interactive Demo: Why Retrieval-Only Matters</h2>
-            <p class="section-desc">See the structural difference between GenAI Paraphrasing and Retrieval-Only Verbatim Anchors.</p>
+            <p class="section-desc">The structural difference between GenAI Paraphrasing and Retrieval-Only Verbatim Anchors.</p>
             
             <div class="demo-widget">
                 <div class="demo-controls">
@@ -105,10 +103,10 @@
         <section id="projects" class="projects">
             <h2><i class="fa-solid fa-code-branch"></i> Tech Builds & Automation</h2>
             
-            <div class="project-card">
+            <div class="project-card premium">
                 <span class="status-badge live">Live Deployed</span>
                 <h3>ArgLex — Argument-Level Retrieval System</h3>
-                <p>A multi-layer pipeline combining semantic search with an InLegalBERT domain model to surface specific arguments from Indian court decisions rather than full-case dumps. Curated 99 arguments across 16 Supreme Court decisions.</p>
+                <p>A multi-layer pipeline combining semantic search with an InLegalBERT domain model to surface specific arguments from Indian court decisions. Curated 99 arguments across 16 Supreme Court decisions.</p>
                 <div class="tech-tags">
                     <span>Python</span><span>Semantic Search</span><span>Streamlit</span>
                 </div>
@@ -140,38 +138,19 @@
             </div>
         </section>
 
-        <!-- Capabilities & Credentials -->
-        <section class="capabilities">
-            <h2>My Capabilities</h2>
-            <div class="cap-grid">
-                <div class="cap-box">
-                    <h3><i class="fa-solid fa-gavel"></i> Litigation</h3>
-                    <p>Legal Drafting • Writ Petitions • Case Law Research • Supreme Court & High Court Exposure</p>
-                </div>
-                <div class="cap-box">
-                    <h3><i class="fa-solid fa-robot"></i> Legal Tech</h3>
-                    <p>Python Automation • FastAPI • Retrieval-Augmented Generation (RAG) • Document Triage</p>
-                </div>
-                <div class="cap-box">
-                    <h3><i class="fa-solid fa-lock"></i> Compliance</h3>
-                    <p>DPDP Act 2023 • Data Erasure Workflows • Corporate Governance • Statutory Retention</p>
-                </div>
-            </div>
-        </section>
-
         <section id="research" class="credentials">
-            <h2>Professional Credentials & Research</h2>
+            <h2><i class="fa-solid fa-book-open"></i> Professional Credentials & Research</h2>
             <ul class="cred-list">
-                <li><i class="fa-solid fa-book-open"></i> <strong>SSRN Publication:</strong> <em>"Beyond the Hallucination: Building a 'Retrieval-Only' Future for Indian Legal Tech"</em> (2026).</li>
+                <li><i class="fa-solid fa-newspaper"></i> <strong>SSRN Publication:</strong> <em>"Beyond the Hallucination: Building a 'Retrieval-Only' Future for Indian Legal Tech"</em> (2026).</li>
                 <li><i class="fa-solid fa-graduation-cap"></i> <strong>BA.LLB (Hons.):</strong> Madhusudan Law University, First Class (73.48%).</li>
-                <li><i class="fa-solid fa-certificate"></i> <strong>Harvey AI Certified:</strong> AI for Legal Basics & AI Analysis for Legal Workflows (2026).</li>
+                <li><i class="fa-solid fa-certificate"></i> <strong>Harvey AI Certified:</strong> AI for Legal Basics & AI Analysis for Legal Workflows.</li>
             </ul>
         </section>
 
     </div>
 
     <footer>
-        <p>© 2026 Soubhagyashree Das • <a href="https://linkedin.com/in/soubhagyashree" target="_blank">LinkedIn</a> • <a href="https://github.com/SD-AI144" target="_blank">GitHub</a></p>
+        <p>© 2026 Soubhagyashree Das • <a href="https://www.linkedin.com/in/soubhagyashree/" target="_blank">LinkedIn</a> • <a href="https://github.com/SD-AI144" target="_blank">GitHub</a></p>
     </footer>
 
     <div id="toast" class="toast">Email copied to clipboard! 📋</div>
