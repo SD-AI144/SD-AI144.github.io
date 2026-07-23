@@ -4,19 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soubhagyashree Das | Legal Tech Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6.5.1 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-base: #0f172a;       /* Deep Slate Background */
+            --bg-card: #1e293b;       /* Elevated Card Background */
+            --bg-hover: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-primary: #818cf8; /* Soft Indigo */
+            --accent-glow: rgba(129, 140, 248, 0.2);
+            --verified-mint: #10b981;  /* Zero-Risk Mint Green */
+            --verified-glow: rgba(16, 185, 129, 0.15);
+            --risk-red: #ef4444;       /* GenAI High Risk Red */
+            --border: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem 5%; position: sticky; top: 0;
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); z-index: 1000;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px;}
+        .logo span { color: var(--accent-primary); }
+        .nav-links a { 
+            margin-left: 2rem; text-decoration: none; color: var(--text-muted); 
+            font-weight: 500; transition: color 0.3s; 
+        }
+        .nav-links a:hover { color: var(--accent-primary); }
+
+        /* --- Container & Layout --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        section { margin-bottom: 6rem; scroll-margin-top: 100px; }
+        
+        h2 { 
+            font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; 
+            color: var(--text-main); border-bottom: 1px solid var(--border); padding-bottom: 1rem;
+        }
+        .section-desc { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 3rem; }
+
+        /* --- Hero Section --- */
+        .hero { margin-bottom: 6rem; padding-top: 2rem; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero .subtitle { font-size: 1.25rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 1.5rem; }
+        .hero .summary { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 800px; }
+
+        .hero-tags { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .hero-tags span { 
+            font-size: 0.9rem; font-weight: 600; color: var(--text-main); 
+            background: var(--bg-card); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border);
+        }
+        .hero-tags i { color: var(--accent-primary); margin-right: 6px; }
+
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn { 
+            padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; 
+            cursor: pointer; border: none; font-size: 0.95rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-primary { background: var(--accent-primary); color: #fff; }
+        .btn-primary:hover { background: #6366f1; transform: translateY(-2px); box-shadow: 0 10px 20px var(--accent-glow); }
+        .btn-outline { background: transparent; color: var(--text-main); border: 1px solid var(--border); }
+        .btn-outline:hover { border-color: var(--accent-primary); background: rgba(129, 140, 248, 0.05); transform: translateY(-2px); }
+
+        /* --- Interactive Demo Section --- */
+        .demo-widget { 
+            background: var(--bg-card); border: 1px solid var(--border); 
+            border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .demo-tabs { display: flex; border-bottom: 1px solid var(--border); background: #0f172a; }
+        .tab-btn { 
+            flex: 1; padding: 15px; background: transparent; border: none; color: var(--text-muted); 
+            font-weight: 600; cursor: pointer; transition: 0.3s; font-family: 'Inter', sans-serif;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-btn:hover { color: var(--text-main); background: rgba(255,255,255,0.02); }
+        .tab-btn.active { color: var(--accent-primary); border-bottom-color: var(--accent-primary); background: var(--bg-card); }
+
+        .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .demo-panel { padding: 2rem; font-size: 0.95rem; }
+        .panel-genai { border-right: 1px solid var(--border); background: linear-gradient(to bottom, rgba(239,68,68,0.05), transparent); }
+        .panel-arglex { background: linear-gradient(to bottom, var(--verified-glow), transparent); }
+        
+        .demo-badge { display: inline-block; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .badge-red { background: rgba(239,68,68,0.1); color: var(--risk-red); border: 1px solid rgba(239,68,68,0.2); }
+        .badge-green { background: var(--verified-glow); color: var(--verified-mint); border: 1px solid rgba(16,185,129,0.3); }
+
+        .demo-text { font-family: 'Fira Code', monospace; line-height: 1.6; color: #cbd5e1; }
+        .demo-text strong { color: var(--verified-mint); }
+
+        /* --- Project Cards --- */
+        .project-card { 
+            background: var(--bg-card); border: 1px solid var(--border); 
+            padding: 2.5rem; border-radius: 12px; margin-bottom: 1.5rem; 
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .project-card:hover { transform: translateY(-4px); border-color: var(--accent-primary); }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 10px;}
+        .project-card h3 { font-size: 1.5rem; color: var(--text-main); }
+        .status-badge { 
+            padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; 
+            letter-spacing: 0.5px; border: 1px solid;
+        }
+        .badge-live { color: var(--accent-primary); background: var(--accent-glow); border-color: var(--accent-primary); }
+        .badge-internal { color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: #f59e0b; }
+        .badge-draft { color: var(--text-muted); background: rgba(148, 163, 184, 0.1); border-color: var(--border); }
+
+        .project-card p { color: var(--text-muted); margin-bottom: 1.5rem; }
+        
+        .tech-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .tech-tags span { 
+            background: var(--bg-base); border: 1px solid var(--border); 
+            padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-family: 'Fira Code', monospace; color: var(--accent-primary);
+        }
+
+        /* --- Architecture Diagram (CSS Flexbox) --- */
+        .arch-diagram {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px;
+            background: var(--bg-base); padding: 1.5rem; border-radius: 8px; border: 1px dashed var(--border);
+            margin-bottom: 1.5rem;
+        }
+        .arch-step {
+            background: var(--bg-card); border: 1px solid var(--border); padding: 10px 15px;
+            border-radius: 6px; font-size: 0.8rem; text-align: center; color: var(--text-main);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .arch-step.terminal { border-color: var(--verified-mint); background: rgba(16,185,129,0.05); }
+        .arch-arrow { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* --- Credentials List --- */
+        .cred-list { list-style: none; }
+        .cred-list li { 
+            padding: 1.2rem; background: var(--bg-card); border: 1px solid var(--border); 
+            border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 15px;
+        }
+        .cred-list i { color: var(--accent-primary); font-size: 1.2rem; margin-top: 3px; }
+        .cred-list strong { color: var(--text-main); }
+
+        footer { text-align: center; padding: 3rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .demo-grid { grid-template-columns: 1fr; }
+            .panel-genai { border-right: none; border-bottom: 1px solid var(--border); }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .arch-diagram { flex-direction: column; align-items: stretch; }
+            .arch-arrow { text-align: center; transform: rotate(90deg); margin: 5px 0; }
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav class="navbar">
-        <a href="#" class="logo">SD.</a>
+        <a href="#" class="logo">SD<span>.</span></a>
         <div class="nav-links">
             <a href="#about">About</a>
+            <a href="#demo">Demo</a>
             <a href="#projects">Tech Builds</a>
             <a href="#drafting">Drafting</a>
-            <a href="#research">Research</a>
         </div>
     </nav>
 
@@ -26,7 +191,7 @@
         <header class="hero" id="about">
             <h1>A Legal Professional Built for Zero-Hallucination Tech</h1>
             <p class="subtitle">Legal Tech Engineering • Compliance Automation • DPDP Act</p>
-            <p class="summary">Recent law graduate bridging the gap between courtroom litigation and AI-driven automation. I build retrieval-only systems and statutory compliance engines.</p>
+            <p class="summary">Recent law graduate bridging the gap between courtroom litigation and AI-driven automation. I build deterministic, retrieval-only systems and statutory compliance engines.</p>
             
             <div class="hero-tags">
                 <span><i class="fa-solid fa-scale-balanced"></i> BA.LLB (Hons.)</span>
@@ -34,126 +199,181 @@
                 <span><i class="fa-solid fa-file-contract"></i> Litigation Drafting</span>
             </div>
 
-            <div class="hero-buttons">
+            <div class="btn-group">
                 <a href="https://legal-argument-retriever-9r98krof2zjwb2jnvzbw9a.streamlit.app/" target="_blank" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Launch ArgLex Live</a>
-                <a href="#projects" class="btn btn-secondary"><i class="fa-solid fa-folder-open"></i> See My Work</a>
-                <button onclick="copyEmail()" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> Email Me</button>
+                <a href="#projects" class="btn btn-outline"><i class="fa-solid fa-folder-tree"></i> View Tech Builds</a>
             </div>
         </header>
 
-        <!-- What I Bring Section -->
-        <section class="value-prop">
-            <h2>What I Bring to Your Legal Team</h2>
-            <p class="section-desc">Bridging foundational legal skills with modern technology workflows.</p>
-
-            <div class="value-item">
-                <div class="value-icon"><i class="fa-solid fa-microchip"></i></div>
-                <div class="value-content">
-                    <h3>Legal Tech & Retrieval Engineering</h3>
-                    <p>I don't just use tools; I build them. I engineered ArgLex, a semantic search tool using an InLegalBERT model trained on 5.4M documents. Designed explicitly as "retrieval-only" to eliminate hallucination risks in court.</p>
-                    <p class="translation"><em>*Translation: I build systems that legal teams can actually trust in court.*</em></p>
-                </div>
-            </div>
-
-            <div class="value-item">
-                <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="value-content">
-                    <h3>Compliance Simulation & DPDP Act</h3>
-                    <p>Built a FastAPI proof-of-concept simulator mapping data-erasure requests under Section 6(4) of the DPDP Act against statutory retention mandates (PMLA, CGST) using explicit decision trees.</p>
-                    <p class="translation"><em>*Translation: I understand how regulations interact under the hood.*</em></p>
-                </div>
-            </div>
-
-            <div class="value-item">
-                <div class="value-icon"><i class="fa-solid fa-pen-nib"></i></div>
-                <div class="value-content">
-                    <h3>Traditional Legal Drafting</h3>
-                    <p>Solid foundation in core litigation. Drafted writ petitions, legal notices, and applications at the Supreme Court of India and High Court of Odisha, attending over 50 hearings across 3 years.</p>
-                    <p class="translation"><em>*Translation: I understand the foundational law behind the technology.*</em></p>
-                </div>
-            </div>
-        </section>
-
         <!-- Interactive Demo Section -->
-        <section class="demo-section">
-            <h2><i class="fa-solid fa-desktop"></i> Interactive Demo: Why Retrieval-Only Matters</h2>
-            <p class="section-desc">The structural difference between GenAI Paraphrasing and Retrieval-Only Verbatim Anchors.</p>
+        <section id="demo">
+            <h2><i class="fa-solid fa-microchip" style="color: var(--accent-primary); margin-right: 10px;"></i> Why Retrieval-Only Matters</h2>
+            <p class="section-desc">Interact with the tabs below to see the structural difference between GenAI hallucinations and deterministic verbatims.</p>
             
             <div class="demo-widget">
-                <div class="demo-controls">
-                    <button class="query-btn active" onclick="loadDemoQuery(1)">Query: CPC Sec 115 Scope</button>
-                    <button class="query-btn" onclick="loadDemoQuery(2)">Query: DPDP Erasure Conflict</button>
+                <div class="demo-tabs">
+                    <button class="tab-btn active" onclick="switchQuery(1)" id="tab-1">Query 1: CPC Sec 115 Scope</button>
+                    <button class="tab-btn" onclick="switchQuery(2)" id="tab-2">Query 2: DPDP Sec 6(4) Erasure</button>
                 </div>
 
                 <div class="demo-grid">
-                    <div class="demo-card gen-ai">
-                        <div class="card-tag"><i class="fa-solid fa-triangle-exclamation"></i> Standard Gen AI (High Risk)</div>
-                        <p id="genai-text">"Under Section 115 CPC, High Courts can revise orders if lower courts failed to exercise jurisdiction. The court generally held that revision is acceptable..."</p>
+                    <div class="demo-panel panel-genai">
+                        <div class="demo-badge badge-red"><i class="fa-solid fa-triangle-exclamation"></i> Standard GenAI (High Risk)</div>
+                        <div class="demo-text" id="genai-output">
+                            "Under Section 115 CPC, High Courts can revise orders if lower courts failed to exercise jurisdiction. The court generally held that revision is acceptable..."
+                        </div>
                     </div>
 
-                    <div class="demo-card retrieval-ai">
-                        <div class="card-tag"><i class="fa-solid fa-check-circle"></i> ArgLex Verbatim Anchor (Zero Risk)</div>
-                        <p id="retrieval-text"><strong>[Para 14 | SC 2025]:</strong> "The revisionary power under Section 115 CPC is strictly confined to jurisdictional error and cannot be exercised to re-appreciate evidence on merits..."</p>
+                    <div class="demo-panel panel-arglex">
+                        <div class="demo-badge badge-green"><i class="fa-solid fa-circle-check"></i> ArgLex Verbatim Anchor (Zero Risk)</div>
+                        <div class="demo-text" id="arglex-output">
+                            <strong>[Para 14 | SC 2025]:</strong> "The revisionary power under Section 115 CPC is strictly confined to jurisdictional error and cannot be exercised to re-appreciate evidence on merits..."
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects & Drafting Section -->
-        <section id="projects" class="projects">
-            <h2><i class="fa-solid fa-code-branch"></i> Tech Builds & Automation</h2>
+        <!-- Tech Builds Section -->
+        <section id="projects">
+            <h2><i class="fa-solid fa-code-branch" style="color: var(--accent-primary); margin-right: 10px;"></i> Tech Builds & Automation</h2>
+            <p class="section-desc">Independent engineering projects focusing on deterministic logic and legal accuracy.</p>
             
-            <div class="project-card premium">
-                <span class="status-badge live">Live Deployed</span>
-                <h3>ArgLex — Argument-Level Retrieval System</h3>
-                <p>A multi-layer pipeline combining semantic search with an InLegalBERT domain model to surface specific arguments from Indian court decisions. Curated 99 arguments across 16 Supreme Court decisions.</p>
-                <div class="tech-tags">
-                    <span>Python</span><span>Semantic Search</span><span>Streamlit</span>
+            <!-- DPDP Engine (Elevated) -->
+            <div class="project-card">
+                <div class="card-header">
+                    <h3>DPDP 2027 Consent & Erasure Decision Engine</h3>
+                    <span class="status-badge badge-live">TECHNO-LEGAL POC / FASTAPI</span>
                 </div>
+                <p>A FastAPI-based decision engine modeling cross-statute conflicts between DPDP Act 2023 Sec 6(4) erasure requests and mandatory retention periods under PMLA (5yr), CGST (6yr), and Companies Act (8yr). Features 10 automated unit tests and explicit decision-tree logic.</p>
+                
+                <!-- Architecture Diagram -->
+                <div class="arch-diagram">
+                    <div class="arch-step">User Erasure Request</div>
+                    <i class="fa-solid fa-arrow-right arch-arrow"></i>
+                    <div class="arch-step">Active Operation Check?</div>
+                    <i class="fa-solid fa-arrow-right arch-arrow"></i>
+                    <div class="arch-step">Statutory Retention Lookup<br>(PMLA / CGST / Companies)</div>
+                    <i class="fa-solid fa-arrow-right arch-arrow"></i>
+                    <div class="arch-step terminal"><i class="fa-solid fa-lock" style="margin-right:5px;"></i> Hard Delete vs.<br>KMS Pseudonymization</div>
+                </div>
+
+                <div class="tech-tags">
+                    <span>FastAPI</span><span>Python</span><span>DPDP Act 2023</span><span>PMLA/CGST Logic</span><span>Pytest</span>
+                </div>
+                <a href="https://github.com/SD-AI144/DPDP-compliance-engine-simulator" target="_blank" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fa-brands fa-github"></i> View Code on GitHub</a>
             </div>
 
+            <!-- ArgLex -->
             <div class="project-card">
-                <span class="status-badge internal">Internal Tool</span>
-                <h3>Document Triage Automation (VIDUR)</h3>
+                <div class="card-header">
+                    <h3>ArgLex — Argument-Level Retrieval System</h3>
+                    <span class="status-badge badge-live">LIVE DEPLOYED</span>
+                </div>
+                <p>A multi-layer pipeline combining semantic search with an InLegalBERT domain model to surface specific arguments from Indian court decisions rather than full-case dumps. Curated 99 arguments across 16 Supreme Court decisions.</p>
+                <div class="tech-tags">
+                    <span>Python</span><span>InLegalBERT</span><span>Semantic Search</span><span>Streamlit</span>
+                </div>
+                <a href="https://legal-argument-retriever-9r98krof2zjwb2jnvzbw9a.streamlit.app/" target="_blank" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Application</a>
+            </div>
+
+            <!-- VIDUR -->
+            <div class="project-card">
+                <div class="card-header">
+                    <h3>Document Triage Automation (VIDUR)</h3>
+                    <span class="status-badge badge-internal">INTERNAL TOOL</span>
+                </div>
                 <p>Rule-based document triage script scanning judgments across IBC, MCA, and RBI matters. Flags image-only files for OCR and exports structured keyword metadata to Excel.</p>
                 <div class="tech-tags">
-                    <span>Python</span><span>OCR Pipeline</span><span>Excel API</span>
+                    <span>Python</span><span>OCR Pipeline</span><span>Regex</span><span>Excel API</span>
                 </div>
             </div>
         </section>
 
-        <section id="drafting" class="projects">
-            <h2><i class="fa-solid fa-file-signature"></i> Drafting & Corporate Compliance</h2>
+        <!-- Drafting & Compliance -->
+        <section id="drafting">
+            <h2><i class="fa-solid fa-file-signature" style="color: var(--accent-primary); margin-right: 10px;"></i> Drafting & Corporate Compliance</h2>
+            <p class="section-desc">Traditional legal drafting and global compliance simulations.</p>
             
             <div class="project-card">
-                <span class="status-badge law">Data Privacy</span>
-                <h3>Global Cyber & Data Privacy (DLA Piper Simulation)</h3>
+                <div class="card-header">
+                    <h3>Global Cyber & Data Privacy (DLA Piper)</h3>
+                    <span class="status-badge badge-draft">SIMULATION</span>
+                </div>
                 <p>Drafted advisory notes on GDPR obligations, breach notification timelines, and ransomware payment risks.</p>
             </div>
 
             <div class="project-card">
-                <span class="status-badge law">Corporate Transcations</span>
-                <h3>Data & Tech Transactions (Latham & Watkins Simulation)</h3>
+                <div class="card-header">
+                    <h3>Data & Tech Transactions (Latham & Watkins)</h3>
+                    <span class="status-badge badge-draft">SIMULATION</span>
+                </div>
                 <p>Redlined Terms of Service and drafted memorandums flagging critical data and liability risks for technology vendors.</p>
             </div>
         </section>
 
-        <section id="research" class="credentials">
-            <h2><i class="fa-solid fa-book-open"></i> Professional Credentials & Research</h2>
+        <!-- Credentials -->
+        <section id="research">
+            <h2><i class="fa-solid fa-graduation-cap" style="color: var(--accent-primary); margin-right: 10px;"></i> Credentials & Research</h2>
             <ul class="cred-list">
-                <li><i class="fa-solid fa-newspaper"></i> <strong>SSRN Publication:</strong> <em>"Beyond the Hallucination: Building a 'Retrieval-Only' Future for Indian Legal Tech"</em> (2026).</li>
-                <li><i class="fa-solid fa-graduation-cap"></i> <strong>BA.LLB (Hons.):</strong> Madhusudan Law University, First Class (73.48%).</li>
-                <li><i class="fa-solid fa-certificate"></i> <strong>Harvey AI Certified:</strong> AI for Legal Basics & AI Analysis for Legal Workflows.</li>
+                <li>
+                    <i class="fa-solid fa-book-open"></i> 
+                    <div><strong>SSRN Publication:</strong> <em>"Beyond the Hallucination: Building a 'Retrieval-Only' Future for Indian Legal Tech"</em> (2026).</div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-building-columns"></i> 
+                    <div><strong>BA.LLB (Hons.):</strong> Madhusudan Law University, First Class (73.48%).</div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-certificate"></i> 
+                    <div><strong>Harvey AI Certified:</strong> AI for Legal Basics & AI Analysis for Legal Workflows.</div>
+                </li>
             </ul>
         </section>
 
     </div>
 
     <footer>
-        <p>© 2026 Soubhagyashree Das • <a href="https://www.linkedin.com/in/soubhagyashree/" target="_blank">LinkedIn</a> • <a href="https://github.com/SD-AI144" target="_blank">GitHub</a></p>
+        <p>© 2026 Soubhagyashree Das • Built for GitHub Pages</p>
     </footer>
 
-    <div id="toast" class="toast">Email copied to clipboard! 📋</div>
-    <script src="script.js"></script>
+    <!-- Interactive JavaScript -->
+    <script>
+        const queries = {
+            1: {
+                genai: '"Under Section 115 CPC, High Courts can revise orders if lower courts failed to exercise jurisdiction. The court generally held that revision is acceptable..."',
+                arglex: '<strong>[Para 14 | SC 2025]:</strong> "The revisionary power under Section 115 CPC is strictly confined to jurisdictional error and cannot be exercised to re-appreciate evidence on merits..."'
+            },
+            2: {
+                genai: '"When a user revokes consent under DPDP, you must immediately delete all associated user records across your database clusters without exception."',
+                arglex: '<strong>[FastAPI PoC Log]:</strong> "Section 6(4) erasure request flagged. Statutory override triggered under PMLA Sec 12(3) & CGST Sec 36. User data preserved with KMS targeted pseudonymization; plaintext deleted."'
+            }
+        };
+
+        function switchQuery(id) {
+            // Update Active Tab Button
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`tab-${id}`).classList.add('active');
+            
+            // Apply a quick fade effect
+            const genaiText = document.getElementById('genai-output');
+            const arglexText = document.getElementById('arglex-output');
+            
+            genaiText.style.opacity = 0;
+            arglexText.style.opacity = 0;
+            
+            setTimeout(() => {
+                genaiText.innerText = queries[id].genai;
+                arglexText.innerHTML = queries[id].arglex;
+                
+                genaiText.style.opacity = 1;
+                arglexText.style.opacity = 1;
+            }, 150);
+            
+            // Add CSS transition for opacity dynamically if not present
+            genaiText.style.transition = "opacity 0.2s ease";
+            arglexText.style.transition = "opacity 0.2s ease";
+        }
+    </script>
 </body>
 </html>
